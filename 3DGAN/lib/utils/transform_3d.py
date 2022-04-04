@@ -119,7 +119,10 @@ class Resize_image(object):
     self.size = np.array(size, dtype=np.float32)
 
   def __call__(self, img):
-    z, x, y = img.shape
+    # z, x, y = img.shape
+    z = img.shape[0]
+    x = img.shape[1]
+    y = img.shape[2]
     ori_shape = np.array((z, x, y), dtype=np.float32)
     resize_factor = self.size / ori_shape
     img_copy = ndimage.interpolation.zoom(img, resize_factor, order=1)

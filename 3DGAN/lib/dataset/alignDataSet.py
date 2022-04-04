@@ -8,8 +8,8 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
 
-from lib.dataset.baseDataSet import Base_DataSet
-from lib.dataset.utils import *
+from .baseDataSet import Base_DataSet
+from .utils import *
 import h5py
 import numpy as np
 
@@ -60,9 +60,12 @@ class AlignDataSet(Base_DataSet):
   def pull_item(self, item):
     file_path = self.get_image_path(self.dir_root, self.dataset_paths[item])
     ct_data, x_ray1 = self.load_file(file_path)
+    # print("#################当前数据的shape, ct_data = ", ct_data.shape)
+    # print("#################当前数据的shape, x_ray1 = ", x_ray1[:,:,:,0].shape)
+    # print("####################### 现在访问到哪个数据地址： ", file_path)
 
     # Data Augmentation
-    ct, xray1 = self.data_augmentation([ct_data, x_ray1])
+    ct, xray1 = self.data_augmentation([ct_data, x_ray1[:,:,:,0]])
 
     return ct, xray1, file_path
 

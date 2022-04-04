@@ -11,6 +11,7 @@ from __future__ import division
 from easydict import EasyDict
 import os
 import numpy as np
+import yaml
 
 __C = EasyDict()
 cfg = __C
@@ -228,9 +229,9 @@ def cfg_from_yaml(filename):
   :param filename:
   :return:
   '''
-  import yaml
+
   with open(filename, 'r') as f:
-    yaml_cfg = EasyDict(yaml.load(f))
+    yaml_cfg = EasyDict(yaml.safe_load(f))
   _merge_a_into_b(yaml_cfg, __C)
 
 def print_easy_dict(easy_dict):

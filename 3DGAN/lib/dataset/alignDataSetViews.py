@@ -63,7 +63,7 @@ class AlignDataSet(Base_DataSet):
     ct_data, x_ray1, x_ray2 = self.load_file(file_path)
 
     # Data Augmentation
-    ct, xray1, xray2 = self.data_augmentation([ct_data, x_ray1, x_ray2])
+    ct, xray1, xray2 = self.data_augmentation([ct_data, x_ray1[:,:,:,0], x_ray2[:,:,:,0]])
 
     return ct, xray1, xray2, file_path
 
