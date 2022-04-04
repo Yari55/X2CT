@@ -5,11 +5,11 @@
 # ------------------------------------------------------------------------------
 
 import argparse
-from .lib.config.config import cfg_from_yaml, cfg, merge_dict_and_yaml, print_easy_dict
-from .lib.dataset.factory import get_dataset
-from .lib.model.factory import get_model
-from .lib.utils import html
-from .lib.utils.visualizer import tensor_back_to_unnormalization, save_images, tensor_back_to_unMinMax
+from lib.config.config import cfg_from_yaml, cfg, merge_dict_and_yaml, print_easy_dict
+from lib.dataset.factory import get_dataset
+from lib.model.factory import get_model
+from lib.utils import html
+from lib.utils.visualizer import tensor_back_to_unnormalization, save_images, tensor_back_to_unMinMax
 #from lib.utils.metrics_np import MAE, MSE, Peak_Signal_to_Noise_Rate, Structural_Similarity, Cosine_Similarity
 from lib.utils import ct as CT
 import copy
